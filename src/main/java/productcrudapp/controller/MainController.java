@@ -67,7 +67,7 @@ public class MainController {
 
 	// update handler
 	@RequestMapping("/update/{productId}")
-	public String updateForm(@PathVariable("productId") int pid, Model model) {
+	public String updateForm(@PathVariable("productId") int pid, Model model) throws Exception {
 		Product product = this.productDao.getProduct(pid);
 		model.addAttribute("product", product);
 		return "update_form";
