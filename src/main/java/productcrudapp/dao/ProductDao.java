@@ -46,5 +46,4 @@ public class ProductDao {
 		return this.hibernateTemplate.get(Product.class, pid);
 	}
 	
-	
 }

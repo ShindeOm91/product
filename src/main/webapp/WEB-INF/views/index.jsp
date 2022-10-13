@@ -91,18 +91,18 @@
 								<div class="form-group">
 									<label for="name"><b>Product Name </b> </label><input type="text"
 										class="form-control" id="name" aria-describedly="emailHelp"
-										name="name" placeholder="Enter the product name here">
+										name="name" placeholder="Enter the product name here" required="required">
 								</div>
 								<div class="form-group">
 									<label for="description"><b>Product Description </b> </label>
 									<textarea class="form-control" name="description"
 										id="description" row="5"
-										placeholder="Enter the product description"></textarea>
+										placeholder="Enter the product description" required="required"></textarea>
 								</div>
 								<div class="form-group">
 									<label for="price"><b>Product Price </b> </label><input type="text"
 										class="form-control" id="price" name="price"
-										placeholder="Enter the product price here">
+										placeholder="Enter the product price here" required="required">
 
 								</div>
 								<div class="container text-center">
@@ -153,6 +153,7 @@
 									<!-- **************************************************************** -->
 
 
+									<!-- Changes.... -->
 									<a href="update/${p.id}"> <i
 										class="fa-sharp fa-solid fa-pen-to-square text-primary"
 										style="font-size: 25px; margin-right: 20px"></i>
