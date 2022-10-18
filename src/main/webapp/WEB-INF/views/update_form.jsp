@@ -30,7 +30,7 @@
 
 
 
-								<input type="text" value="${product.id}" name="id" />
+								<input type="text" disabled value="${product.id}" name="id" />
 
 
 
@@ -45,9 +45,9 @@
 								</div>
 								<div class="form-group">
 									<label for="description"> Product Description</label>
-									<textarea class="form-control" name="description"
+									<input class="form-control" name="description"
 										id="description" row="5"
-										placeholder="Enter the product description">${product.description}</textarea>
+										placeholder="Enter the product description" value = "${product.description}"/>
 								</div>
 								<div class="form-group">
 									<label for="price"> Product Price</label><input type="text"
@@ -74,26 +74,12 @@
 					</div>
 
 				</div>
-<%-- <c:choose>
-
-<c:when test="${product.id < 10}">
-<h1>Hello</h1>
-</c:when>
-<c:when test="${product.id > 10}">
-<h1>Hello World!</h1>
-</c:when>
-<c:otherwise>
-<h1>Otherwise...</h1>
-</c:otherwise>
-
-</c:choose>
- --%>
 
 
 				<!-- **************************************************************** -->
 				<br> <br>
 				
-				<table class="table">
+				<table class="table table-bordered">
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col">ID</th>

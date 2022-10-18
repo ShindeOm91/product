@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<%-- 	<!-- Practice   -->
+	<%-- 	<!-- Practice   -->
 	<hr>
 	<h1>This is JSTL Example</h1>
 
@@ -71,7 +71,7 @@
 			<div class="col-md-12">
 
 				<h2 class="text-center mb-3">Welcome To Product App</h2>
-<hr>
+				<hr>
 				<!-- <div class="container text-right">
 					<a href="add-product" class="btn btn-outline-success">Add
 						Product</a>
@@ -84,36 +84,63 @@
 							<!-- **************************************************************** -->
 							<form action="${pageContext.request.contextPath}/handle-product"
 								method="post">
-
 								
+						 	<c:choose>
+								<c:when test="${empty product }">
+								<input type="hidden" value="${product.id}" name="id" />
+								</c:when>
+								<c:otherwise>
+								<input type="text" disabled value="${product.id}" name="id" />
+								</c:otherwise>
+								</c:choose> 
+							
 
+						<%-- <input type="text" disabled value="${product.id}" name="id" />  --%>
+						
+						
+						<%-- <div class="form-group">
+									<label for="id"><b>Product ID </b> </label> <input
+										class="form-control" name="id" id="id"
+										row="5" placeholder="Enter the product id"
+										required="required" value="${product.id}">
+								</div> --%>
+						
 
 								<div class="form-group">
-									<label for="name"><b>Product Name </b> </label><input type="text"
-										class="form-control" id="name" aria-describedly="emailHelp"
-										name="name" placeholder="Enter the product name here" required="required">
+									<label for="name"><b>Product Name </b> </label><input
+										type="text" class="form-control" id="name"
+										aria-describedly="emailHelp" name="name"
+										placeholder="Enter the product name here" required="required"
+										value="${product.name}">
 								</div>
 								<div class="form-group">
-									<label for="description"><b>Product Description </b> </label>
-									<textarea class="form-control" name="description"
-										id="description" row="5"
-										placeholder="Enter the product description" required="required"></textarea>
+									<label for="description"><b>Product Description </b> </label> <input
+										class="form-control" name="description" id="description"
+										row="5" placeholder="Enter the product description"
+										required="required" value="${product.description}">
 								</div>
 								<div class="form-group">
-									<label for="price"><b>Product Price </b> </label><input type="text"
-										class="form-control" id="price" name="price"
-										placeholder="Enter the product price here" required="required">
+									<label for="price"><b>Product Price </b> </label><input
+										type="text" class="form-control" id="price" name="price"
+										placeholder="Enter the product price here" required="required"
+										value="${product.price}">
 
 								</div>
+
+
 								<div class="container text-center">
 
-									<a href="${pageContext.request.contextPath }/"
-										class="btn btn-outline-danger">RESET</a>
-
-									<button type="submit" class="btn btn-primary">Add</button>
-
-
-									<!-- **************************************************************** -->
+									
+									<c:choose>
+										<c:when test="${empty  product}">
+											<button type="submit" class="btn btn-primary">Add</button>
+											<a href="${pageContext.request.contextPath }/"
+												class="btn btn-outline-danger">RESET</a>
+										</c:when>
+										<c:otherwise>
+											<button type="submit" class="btn btn-primary">Update</button>
+										</c:otherwise>
+									</c:choose>
 
 								</div>
 
@@ -123,14 +150,13 @@
 
 				</div>
 
-<hr>
+				<hr>
 
 
 				<!-- **************************************************************** -->
-				<br>
-				<br>
+				<br> <br>
 
-				<table class="table">
+				<table class="table table-bordered">
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col">ID</th>
@@ -151,10 +177,7 @@
 								<td class="font-weight-bold">&#x20B9; ${p.price}</td>
 								<td>
 									<!-- **************************************************************** -->
-
-
-									<!-- Changes.... -->
-									<a href="update/${p.id}"> <i
+									<!-- Changes.... --> <a href="update/${p.id}"> <i
 										class="fa-sharp fa-solid fa-pen-to-square text-primary"
 										style="font-size: 25px; margin-right: 20px"></i>
 								</a> <!-- **************************************************************** -->

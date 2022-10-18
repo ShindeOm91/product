@@ -16,13 +16,23 @@ public class ProductDao {
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
 
-	//create or update
+	//create  
 	@Transactional
-	public void createProduct(Product product) {
-		
-		this.hibernateTemplate.saveOrUpdate(product);
-		
+	public void save(Product product) {		
+		this.hibernateTemplate.save(product);		
 	}
+	
+//	update
+	@Transactional
+	public void update(Product product) {		
+		this.hibernateTemplate.update(product);		
+	}
+	
+//	@Transactional
+//	public void update(int pid) {
+//		Product p = this.hibernateTemplate.load(Product.class, pid);
+//		this.hibernateTemplate.saveOrUpdate(p);
+//	}
 	
 	
 	
